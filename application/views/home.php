@@ -10,6 +10,6 @@
 <div id='logo'><a href='<?php echo $base_url;?>'><h1>SocialPure</h1></a></div>
 <div id='sign_up'><a href='<?php echo $base_url.'signup'; ?>'>Sign Up</a></div>
 <br>
-<div id='login'><a href='<?php echo $base_url.'login'; ?>'>Login</a></div>
+<div id='login'><a href='<?php echo $base_url.'verification'; ?>'>Login</a></div>
 </body>
 </html>

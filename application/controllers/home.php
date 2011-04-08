@@ -19,11 +19,28 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+	
+		$false = $this->session->userdata('loggedin');
+
+		if ((isset($false)) && ($false == TRUE))
+		{
+			$this->load->helper('url');
+	
+			$data['base_url'] = base_url();
+			
+			$this->load->view('space_index', $data);
+		}	
+		else
+
+		{
+	
+	
 		$this->load->helper('url');
 	
 		$data['base_url'] = base_url();
 	
 		$this->load->view('home', $data);
+		}
 	}
 }
 

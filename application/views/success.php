@@ -9,5 +9,6 @@
 <body>
 <div id='logo'><a href='<?php echo $base_url;?>'><h1>SocialPure</h1></a></div>
 <div id='success'>Success</div>
+<div id=''>Check your email and verify.</div>
 </body>
 </html>

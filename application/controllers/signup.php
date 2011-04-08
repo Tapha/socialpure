@@ -19,15 +19,46 @@ class Signup extends CI_Controller {
 	 */
 	public function index()
 	{
+		$false = $this->session->userdata('loggedin');
+
+		if ((isset($false)) && ($false == TRUE))
+		{
+			$this->load->helper('url');
+	
+			$data['base_url'] = base_url();
+			
+			$this->load->view('space_index', $data);
+		}	
+		else
+
+		{
+	
 		$this->load->helper('url');
 	
 		$data['base_url'] = base_url();
 	
 		$this->load->view('signup', $data);
+		
+		}
 	}
 	
 	public function company()
 	{
+		
+		$false = $this->session->userdata('loggedin');
+
+		if ((isset($false)) && ($false == TRUE))
+		{
+			$this->load->helper('url');
+	
+			$data['base_url'] = base_url();
+			
+			$this->load->view('space_index', $data);
+		}	
+		else
+
+		{
+	
 		$this->load->database();
 	
 		$company_name = $_POST['company']; 
@@ -51,11 +82,35 @@ class Signup extends CI_Controller {
 		);
 		$this->db->insert('company', $insert);
 		
+		//Insert Admin into users db also
+		
+		$q1 = $this->db->get_where('company', array('email' => $email));
+		
+		foreach ($q1->result() as $row)
+					{
+						$company_id = $row->company_id;
+					}
+					
+		$insert2 = array(
+		'company_id' => $company_id,
+		'first_name' => $first_name,
+		'last_name' => $last_name,
+		'email' => $email,
+		'password' => $password,
+		'is_admin' => 1	
+		);
+		$this->db->insert('users', $insert2);			
+		
+		//Make subpage for company.
+		
+		//socialpure/company, then show create account for users their
+		
 		$this->load->helper('url');
 	
 		$data['base_url'] = base_url();
 		
 		$this->load->view('success', $data);
+		}
 	}
 }
 

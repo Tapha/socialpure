@@ -42,23 +42,23 @@
 	'type' => 'password'
 	);
 	
-	echo "Company: ".form_input($company_data);
+	echo "Company: </br>".form_input($company_data);
 	
 	echo "<br>";
 
-	echo "First Name: ".form_input($first_data);
+	echo "First Name: </br>".form_input($first_data);
 	
 	echo "<br>";
 
-	echo "Last Name: ".form_input($last_data);
+	echo "Last Name: </br>".form_input($last_data);
 	
 	echo "<br>";
 
-	echo "Email: ".form_input($email_data);
+	echo "Email: </br>".form_input($email_data);
 	
 	echo "<br>";
 
-	echo "Password: ".form_input($password_data);
+	echo "Password: </br>".form_input($password_data);
 	
 	echo "<br><br>";
 	
